@@ -1,0 +1,12 @@
+belvo-python
+click==6.7
+Flask>=0.12.3
+itsdangerous==0.24
+Jinja2>=2.9.5
+MarkupSafe==0.23
+Werkzeug>=0.14
+requests==2.20.0
+wsgiref==0.1.2 ; python_version < '3.2'
+flask-cors
+pytest
+pytest-flask
