@@ -144,9 +144,7 @@
               </div>
             </div>
           </div>
-                    <div
-            class="list-item"
-          >
+          <div class="list-item">
             <div class="row py-m flex-between">
               <div
                 class="two-list-item-action__left-item col request-title"
@@ -203,6 +201,63 @@
               </div>
             </div>
           </div>
+          <div class="list-item">
+            <div class="row py-m flex-between">
+              <div
+                class="two-list-item-action__left-item col request-title"
+              >
+                <div class="text-regular-14 request-type post mr-l">
+                  POST
+                </div>
+                <div class="request-content">
+                  <div class="row">
+                    <div class="text-medium-16 mr-m">
+                      Owners
+                    </div>
+                    <div class="text-regular-14">
+                      /api/owners/
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="text-regular-14">
+                      A list of all existing owners in your Belvo account.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="list-item-action col"
+              >
+                <b-button type="primary" :fluid="false" text="Send request" @clicked="retrieveOwners()" />
+              </div>
+            </div>
+            <div class="request-response" v-if="this.owners">
+              <div
+                class="row response-header pb-s"
+              >
+                <div class="text-medium-14 col">
+                  Name
+                </div>
+                <div class="text-medium-14 col">
+                  Email
+                </div>
+                <div class="text-medium-14 col">
+                  Phone Number
+                </div>
+              </div>
+              <div :key="item.id" v-for="item in this.owners" class="row mb-xl pt-m pb-m">
+                <div class="text-regular-16 col">
+                  {{item.display_name}}
+                </div>
+                <div class="text-regular-16 col">
+                  {{item.email}}
+                </div>
+                <div class="text-regular-16 col">
+                  {{item.phone_number}}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </card>
@@ -222,7 +277,8 @@ export default {
     return {
       accounts: null,
       transactions: null,
-      balances: null
+      balances: null,
+      owners: null
     }
   },
   methods: {
@@ -242,6 +298,12 @@ export default {
       axios.post('http://127.0.0.1:5000/balances', {link_id: this.linkId})
           .then((response) => {
             this.balances = response.data;
+          })
+    },
+    retrieveOwners() {
+      axios.post('http://127.0.0.1:5000/owners', {link_id: this.linkId})
+          .then((response) => {
+            this.owners = response.data;
           })
     },
     formatDate(date) {
