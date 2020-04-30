@@ -12,12 +12,6 @@ from requests.auth import HTTPBasicAuth
 from datetime import datetime, timedelta
 import urllib3
 
-app = Flask(__name__,
-        static_folder = "./dist",
-        template_folder = "./dist")
-
-CORS(app)
-
 # Fill in your Belvo API keys - https://dashboard.belvo.co
 BELVO_SECRET_ID = os.getenv('BELVO_SECRET_ID')
 BELVO_SECRET_PASSWORD = os.getenv('BELVO_SECRET_PASSWORD')
@@ -25,6 +19,16 @@ BELVO_SECRET_PASSWORD = os.getenv('BELVO_SECRET_PASSWORD')
 # Use `production` to go live
 BELVO_ENV = os.getenv('BELVO_ENV', 'sandbox')
 BELVO_ENV_URL = 'https://sandbox.belvo.co' if BELVO_ENV == 'sandbox' else 'https://api.belvo.co'
+
+app = Flask(__name__,
+        static_folder = "./dist",
+        template_folder = "./dist")
+
+CORS(app)
+
+if BELVO_ENV == 'sandbox':
+    app.config['TESTING'] = True
+    os.environ['FLASK_ENV'] = "development"
 
 client = Client(BELVO_SECRET_ID, BELVO_SECRET_PASSWORD, BELVO_ENV_URL)
 
@@ -107,8 +111,8 @@ def retrieve_owners():
     except RequestError as e:
         return jsonify(format_error(e))
 
-    pretty_print_response(response.json())
-    return jsonify(response.json())
+    pretty_print_response(response)
+    return jsonify(response)
 
 
 @app.route('/statements', methods=['POST'])
