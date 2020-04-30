@@ -1,0 +1,6 @@
+{
+  "name": "Belvo Quickstart",
+  "description": "A barebones Python app using Belvo",
+  "repository": "https://github.com/belvo-finance/quickstart/tree/master/python",
+  "keywords": ["python", "belvo", "static"]
+}

@@ -61,14 +61,14 @@ def retrieve_accounts():
     except RequestError as e:
         return jsonify(format_error(e))
 
-    pretty_print_response(response.json())
-    return jsonify(response.json())
+    pretty_print_response(response)
+    return jsonify(response)
 
 
 @app.route('/transactions', methods=['POST'])
 def retrieve_transactions():
     try:
-        response = client.Accounts.create(
+        response = client.Transactions.create(
             link=request.json['link_id'],
             date_from=datetime.strftime(datetime.now() - timedelta(days=30), '%Y-%m-%d'),
             date_to=datetime.strftime(datetime.now(), '%Y-%m-%d')
@@ -77,8 +77,8 @@ def retrieve_transactions():
     except RequestError as e:
         return jsonify(format_error(e))
 
-    pretty_print_response(response.json())
-    return jsonify(response.json())
+    pretty_print_response(response)
+    return jsonify(response)
 
 
 @app.route('/balances', methods=['POST'])
@@ -93,8 +93,8 @@ def retrieve_balance():
     except RequestError as e:
         return jsonify(format_error(e))
 
-    pretty_print_response(response.json())
-    return jsonify(response.json())
+    pretty_print_response(response)
+    return jsonify(response)
 
 
 @app.route('/owners', methods=['POST'])
