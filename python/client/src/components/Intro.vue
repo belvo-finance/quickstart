@@ -2,9 +2,6 @@
   <div>
     <div class="row pb-xl">
       <div class="col">
-        <div class="text-medium-36 pb-m">
-          Belvo quickstart
-        </div>
         <div class="text-regular-20 pb-m">
           An example application that outlines an end-to-end integration with Belvo
         </div>
@@ -24,7 +21,7 @@
 
 <script>
   import axios from "axios";
-
+  
   export default {
     name: 'Intro',
     data() {
@@ -34,20 +31,24 @@
       }
     },
     methods: {
-      openBelvoWidget: async() => {
-        const response = await axios.get('http://127.0.0.1:5000/get_token');
-        const access_token = response.data.access;
-
-        window.belvoSDK.createWidget(access_token, {
-          locale: 'es', // 'en' for English
-          country_codes: ['MX', 'CO'],
-          callback: (link) => this.successCallbackFunction(link)
-        }).build();
-        
+      openBelvoWidget() {
+        axios.get('http://127.0.0.1:5000/get_token')
+          .then((response) => {
+            const access_token = response.data.access;
+            window.belvoSDK.createWidget(access_token, {
+              locale: 'es', // 'en' for English
+              country_codes: ['MX', 'CO'],
+              callback: (link) => this.successCallbackFunction(link),
+              onExit: (data) => this.onExitCallbackFunction(data)
+            }).build();
+          })
       },
       successCallbackFunction(link_id) {
-        this.success = true,
+        this.$emit('setLinkId', link_id)
         localStorage.setItem('link', link_id)
+      },
+      onExitCallbackFunction(data) {
+        console.log('data', data)
       }
     }
   }

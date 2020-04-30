@@ -11,6 +11,7 @@
     "@belvo-finance/belvo-vue-components": "^1.12.4",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
+    "moment": "^2.24.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {

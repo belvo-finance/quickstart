@@ -1,8 +1,15 @@
 <template>
   <div id="app">
       <div class="layout">
-        <Intro/>
-        <Requests/>
+        <div class="row pb-xl">
+          <div class="col">
+            <div class="text-medium-36">
+              Belvo quickstart
+            </div>
+          </div>
+        </div>
+        <Intro v-if="!linkId" v-on:setLinkId="handleSetLinkId" />
+        <Requests v-if="linkId" :linkId="this.linkId" />
       </div>
   </div>
 </template>
@@ -16,6 +23,17 @@ export default {
   components: {
     Intro,
     Requests
+  },
+  data() {
+    return {
+      linkId: null,
+    }
+  },
+  methods: {
+    handleSetLinkId(linkId) {
+      console.log('handleSetLinkId linkId', linkId)
+      this.linkId = linkId;
+    }
   }
 }
 </script>
