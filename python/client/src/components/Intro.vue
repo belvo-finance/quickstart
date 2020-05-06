@@ -39,7 +39,8 @@
               locale: 'es', // 'en' for English
               country_codes: ['MX', 'CO'],
               callback: (link) => this.successCallbackFunction(link),
-              onExit: (data) => this.onExitCallbackFunction(data)
+              onExit: (data) => this.onExitCallbackFunction(data),
+              onEvent: (data) => console.log('data', data)
             }).build();
           })
       },
