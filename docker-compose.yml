@@ -1,0 +1,27 @@
+version: '3.6'
+
+services:
+  client:
+    build:
+      context: client
+    image: belvo/quickstart:client
+    ports:
+    - 8080:8080
+    networks:
+      - quickstart-net
+
+  server:
+    build:
+      context: ${CONTEXT}
+    image: belvo/quickstart:${CONTEXT}
+    environment:
+      BELVO_SECRET_ID: ${BELVO_SECRET_ID}
+      BELVO_SECRET_PASSWORD: ${BELVO_SECRET_PASSWORD}
+      BELVO_ENV: ${BELVO_ENV}
+    ports:
+      - 5000:5000
+    networks:
+      - quickstart-net
+
+networks:
+  quickstart-net: {}
