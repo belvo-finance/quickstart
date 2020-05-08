@@ -42,7 +42,7 @@ def catch_all(path):
 @app.route("/get_token", methods=["GET"])
 def get_token():
     try:
-        url = BELVO_ENV_URL + "/api/token/"
+        url = f"{BELVO_ENV_URL}/api/token/"
         response = requests.post(
             url,
             verify=False,
