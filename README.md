@@ -6,6 +6,8 @@ Quickstart is currently available for [Python](https://github.com/belvo-finance/
 
 Coming soon: `Node`, `Ruby`, `Go`, `Java`.
 
+![Belvo quickstart app](/assets/quickstart-screenshot.png)
+
 Learn more about Belvo: 
 - [Developers portal](https://developers.belvo.co/)
 - [API reference](https://docs.belvo.co/)
