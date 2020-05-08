@@ -7,7 +7,7 @@
         </div>
         <div class="divider" />
         <div class="text-regular-16 pt-m">
-          Click the button below to open a list of Institutions. After you select one, you’ll be guided through an authentication process. Upon completion, a token will be passed back to the server and exchanged for an access_token.
+          Click the button below to open a list of Institutions. After you select one, you’ll be guided through an authentication process. Upon completion, a link will be created and you will be able to retrieve accounts, transactions, balances and owners.
         </div>
       </div>
     </div>
