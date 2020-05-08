@@ -1,8 +1,5 @@
 FROM python:3.8-alpine
 
-ENV BELVO_SECRET_ID CHANGEME
-ENV BELVO_SECRET_PASSWORD CHANGEME
-ENV BELVO_ENV sandbox
 ENV PYTHONPATH=/opt/belvo
 ENV PYTHONUNBUFFERED=1
 
@@ -22,4 +19,6 @@ WORKDIR /opt/belvo/
 
 EXPOSE 5000
 
-CMD ["python", "server.py"]
+ENV FLASK_APP server.py
+
+CMD ["flask", "run", "--host=0.0.0.0"]
