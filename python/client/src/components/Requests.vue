@@ -3,7 +3,7 @@
     <div class="row pb-xl">
       <div class="col">
         <div class="text-regular-20 pb-m">
-          Success! You just created an Item by linking your account.
+          Success! You just created a link in Belvo.
         </div>
         <div class="divider" />
       </div>
@@ -47,7 +47,7 @@
                   </div>
                   <div class="row">
                     <div class="text-regular-14">
-                      Retrieve accounts from an existing link.
+                      Retrieve accounts in the institution from an existing link.
                     </div>
                   </div>
                 </div>
@@ -106,7 +106,7 @@
                   </div>
                   <div class="row">
                     <div class="text-regular-14">
-                      Retrieve transactions from a specific account or all accounts from a specific link.
+                      Retrieve last 30 days transactions from all accounts in a specific link.
                     </div>
                   </div>
                 </div>
@@ -139,7 +139,7 @@
                   {{item.amount}}
                 </div>
                 <div class="text-regular-16 col">
-                  {{ formatDate(item.accounting_date) }}
+                  {{ formatDate(item.value_date) }}
                 </div>
               </div>
             </div>
@@ -163,7 +163,7 @@
                   </div>
                   <div class="row">
                     <div class="text-regular-14">
-                      A list of all existing balances in your Belvo account.
+                      Retrieve last 30 days balances of all accounts in a specific link.
                     </div>
                   </div>
                 </div>
@@ -220,7 +220,7 @@
                   </div>
                   <div class="row">
                     <div class="text-regular-14">
-                      A list of all existing owners in your Belvo account.
+                      Retrieve information on the owner of a specific link.
                     </div>
                   </div>
                 </div>
