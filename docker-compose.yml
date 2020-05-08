@@ -10,10 +10,10 @@ services:
     networks:
       - quickstart-net
 
-  python-example:
+  server:
     build:
-      context: python
-    image: belvo/quickstart:python
+      context: ${CONTEXT}
+    image: belvo/quickstart:${CONTEXT}
     environment:
       BELVO_SECRET_ID: ${BELVO_SECRET_ID}
       BELVO_SECRET_PASSWORD: ${BELVO_SECRET_PASSWORD}
