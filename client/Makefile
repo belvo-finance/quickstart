@@ -8,15 +8,9 @@ help:  ## Shows this help message
 
 .PHONY: build
 build: ## Build docker image including base dependencies
-	@docker build -t belvo/quickstart .
+	@docker build -t belvo/quickstart:client .
 
 .PHONY: up
 up: ## Boot up server
-	@docker run --rm -ti belvo/quickstart
+	@docker run --rm -ti belvo/quickstart:client
 
-##@ 🛠  Testing and development
-
-.PHONY: linting
-linting: ## Check and fix code linting using black and isort.
-	@isort -rc .
-	@black .
