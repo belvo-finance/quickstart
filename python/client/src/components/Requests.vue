@@ -158,7 +158,7 @@
                       Balance
                     </div>
                     <div class="text-regular-14">
-                      /api/balance/
+                      /api/balances/
                     </div>
                   </div>
                   <div class="row">
