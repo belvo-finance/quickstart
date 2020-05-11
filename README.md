@@ -47,7 +47,7 @@ make run
 ```
 
 
-# About Belvo
+## About Belvo
 
 Learn more about Belvo: 
 - [Developers portal](https://developers.belvo.co/)
