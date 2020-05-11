@@ -21,10 +21,37 @@ Coming soon: `Node`, `Ruby`, `Go`, `Java`.
 Copy the `.env.example` file included in this project and name it `.env`. 
 
 Using your text editor of choice open the `.env` file and complete the info, now you just need to open a terminal and execute:
-```bash
-$> make run
+```
+# 1. Clone the repository
+git clone https://github.com/belvo-finance/quickstart.git
+cd quickstart/
 ```
 
+```
+# 2. Setup the Quickstart app with your sandbox API keys from the Dashboard
+# https://dashboard.belvo.co/
+echo "BELVO_SECRET_ID=[YOUR_ID_HERE]
+BELVO_SECRET_PASSWORD=[YOUR_PASSWORD_HERE]
+# You can choose between sandbox and production
+BELVO_ENV=sandbox
+# You can choose between python and ruby
+CONTEXT=python" >> .env
+```
+
+```
+# 3. Configure the widget by adding your private
+# IP and the port as a new URL in the Connect Widget 
+# area (e.g: 192.139.199.12:8080)
+# https://dashboard.belvo.co/configuration/widget/
+```
+
+```
+# 4. Run the application
+make run
+```
+
+
+## About Belvo
 Learn more about Belvo: 
 - [Developers portal](https://developers.belvo.co/)
 - [API reference](https://docs.belvo.co/)
