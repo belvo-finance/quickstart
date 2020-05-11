@@ -1,6 +1,8 @@
 # Belvo quickstart
 
-In this repository, you'll find full example of integration apps using our Connect widget and libraries. 
+In this repository you will find an example of an app that allows you to link bank accounts through Belvo’s API using our widget. Once an account is linked, you can access the detailed information about the Accounts, Transactions and Owners.
+
+You can access all the app code and reuse it for you application.
 
 Quickstart is currently available for [Python](https://github.com/belvo-finance/quickstart/tree/master/python). 
 
