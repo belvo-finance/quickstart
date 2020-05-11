@@ -29,9 +29,17 @@ export default {
       linkId: null,
     }
   },
+  mounted() {
+    let belvoScript = document.createElement('script')
+    if (process.env.NODE_ENV === 'production') {
+      belvoScript.setAttribute('src', 'https://cdn.belvo.io/belvo-widget-1-stable.js')
+    } else {
+      belvoScript.setAttribute('src', 'https://cdn.belvo.io/belvo-widget-sandbox-1-stable.js')
+    }
+    document.head.appendChild(belvoScript)
+  },
   methods: {
     handleSetLinkId(linkId) {
-      console.log('handleSetLinkId linkId', linkId)
       this.linkId = linkId;
     }
   }
