@@ -25,7 +25,7 @@ git clone https://github.com/belvo-finance/quickstart.git
 cd quickstart/
 ```
 
-### 2. Setup the Auickstart app
+### 2. Setup the Quickstart app
 Setup the Quickstart app with your sandbox API keys from the Dashboard (https://dashboard.belvo.co/)
 ```
 echo "BELVO_SECRET_ID=[YOUR_ID_HERE]
