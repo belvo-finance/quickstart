@@ -47,7 +47,7 @@
                   </div>
                   <div class="row">
                     <div class="text-regular-14">
-                      Retrieve accounts in the institution from an existing link.
+                      Retrieve the information from all the Accounts inside the Link.
                     </div>
                   </div>
                 </div>
@@ -106,7 +106,7 @@
                   </div>
                   <div class="row">
                     <div class="text-regular-14">
-                      Retrieve last 30 days transactions from all accounts in a specific link.
+                      Retrieve the transactions from the last 30 days from each one of the Accounts inside the Link already created.
                     </div>
                   </div>
                 </div>
@@ -163,7 +163,7 @@
                   </div>
                   <div class="row">
                     <div class="text-regular-14">
-                      Retrieve last 30 days balances of all accounts in a specific link.
+                      Retrieve the daily balance of all the Accounts for the last 30 days.
                     </div>
                   </div>
                 </div>
@@ -220,7 +220,7 @@
                   </div>
                   <div class="row">
                     <div class="text-regular-14">
-                      Retrieve information on the owner of a specific link.
+                      Retrieve the personal information of the owner of the Link.
                     </div>
                   </div>
                 </div>
