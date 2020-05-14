@@ -37,7 +37,7 @@ CONTEXT=python" >> .env
 ```
 
 ### 3. Configure the widget
-Configure the widget by adding your private IP and the port as a new URL in the Connect Widget area:
+Configure the widget by adding your local URL in the Connect Widget area:
 - Go to https://dashboard.belvo.co/configuration/widget/
 - Add `http://localhost:8080` to the list of URLs
 
