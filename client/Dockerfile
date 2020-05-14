@@ -1,9 +1,4 @@
-FROM node:13-alpine
-
-RUN apk add --no-cache --virtual .gyp \
-        python \
-        make \
-        g++
+FROM node:13.8-alpine3.11
 
 COPY . /opt/belvo/
 
