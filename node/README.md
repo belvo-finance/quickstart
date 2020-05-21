@@ -1,4 +1,4 @@
-# Quickstart for belvo-python
+# Quickstart for belvo-js
 
 To run this application locally, first install it and then run the app with the instructions below.
 
