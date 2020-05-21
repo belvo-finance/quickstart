@@ -32,7 +32,7 @@ echo "BELVO_SECRET_ID=[YOUR_ID_HERE]
 BELVO_SECRET_PASSWORD=[YOUR_PASSWORD_HERE]
 # You can choose between sandbox and production
 BELVO_ENV=sandbox
-# You can choose between python and ruby
+# You can choose between Python, Ruby and Node.js
 CONTEXT=python" >> .env
 ```
 
