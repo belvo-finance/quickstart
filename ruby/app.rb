@@ -75,8 +75,8 @@ post '/transactions' do
 
   response = belvo.transactions.retrieve(
     link: link_id,
-    date_from: '2019-07-01',
-    options: { "date_to": '2019-07-31'}
+    date_from: (Date.today - 30),
+    options: { "date_to": Date.today}
   )
   pretty_print_response(response)
   content_type :json
@@ -88,8 +88,8 @@ post '/balances' do
 
   response = belvo.balances.retrieve(
     link: link_id,
-    date_from: '2019-07-01',
-    options: { "date_to": '2019-07-31'}
+    date_from: (Date.today - 30),
+    options: { "date_to": Date.today}
   )
   pretty_print_response(response)
   content_type :json
