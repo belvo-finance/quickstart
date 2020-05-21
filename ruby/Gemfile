@@ -3,3 +3,4 @@ source 'https://rubygems.org'
 gem 'belvo'
 gem 'sinatra'
 gem 'httparty'
+gem "sinatra-cross_origin", "~> 0.4.0"
