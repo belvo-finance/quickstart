@@ -4,9 +4,9 @@ In this repository you will find an example of an app that allows you to link ba
 
 You can access all the app code and reuse it for you application.
 
-Quickstart is currently available for [Python](https://github.com/belvo-finance/quickstart/tree/master/python). 
+Quickstart is currently available for [Python](https://github.com/belvo-finance/quickstart/tree/master/python), [Ruby](https://github.com/belvo-finance/quickstart/tree/master/ruby) and [Node](https://github.com/belvo-finance/quickstart/tree/master/node). 
 
-Coming soon: `Node`, `Ruby`, `Go`, `Java`.
+Coming soon: `Go`, `Java`.
 
 ![Belvo quickstart app](/assets/quickstart-screenshot.png)
 
