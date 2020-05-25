@@ -1,0 +1,3 @@
+* @belvo-finance/opensource
+*.py @belvo-finance/python
+*.js @belvo-finance/javascript
