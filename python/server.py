@@ -2,13 +2,11 @@ import json
 import os
 from datetime import datetime, timedelta
 
-import requests
 import urllib3
 from belvo.client import Client
 from belvo.exceptions import RequestError
 from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
-from requests.auth import HTTPBasicAuth
 
 # Fill in your Belvo API keys - https://dashboard.belvo.co
 BELVO_SECRET_ID = os.getenv("BELVO_SECRET_ID")
