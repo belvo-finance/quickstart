@@ -42,22 +42,12 @@ def catch_all(path):
 @app.route("/get_token", methods=["GET"])
 def get_token():
     try:
-        url = f"{BELVO_ENV_URL}/api/token/"
-        response = requests.post(
-            url,
-            verify=False,
-            auth=HTTPBasicAuth(BELVO_SECRET_ID, BELVO_SECRET_PASSWORD),
-            json={
-                "id": BELVO_SECRET_ID,
-                "password": BELVO_SECRET_PASSWORD,
-                "scopes": "read_institutions,write_links,read_links,delete_links",
-            },
-        )
+        response = client.WidgetToken.create()
     except RequestError as e:
         return jsonify(format_error(e))
 
-    pretty_print_response(response.json())
-    return jsonify(response.json())
+    pretty_print_response(response)
+    return jsonify(response)
 
 
 @app.route("/accounts", methods=["POST"])
