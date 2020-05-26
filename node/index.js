@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const port = 5000;
-const axios = require('axios');
 const bodyParser = require('body-parser');
 const moment = require('moment');
 const belvo = require('belvo').default;
@@ -32,27 +31,17 @@ const client = new belvo(
 // Request an access token to be used when loading the Widget
 // https://developers.belvo.co/docs/connect-widget#section--3-generate-an-access_token-
 app.get("/get_token", (req, res, next) => {
-    const data = {
-        id: BELVO_SECRET_ID,
-        password: BELVO_SECRET_PASSWORD,
-        scopes: "read_institutions,write_links,read_links,delete_links"
-    }
-
-    const config = {
-        auth: {
-            username: BELVO_SECRET_ID,
-            password: BELVO_SECRET_PASSWORD
-        }
-    }
-    
-    axios.post(`${BELVO_ENV_URL}/api/token/`, data, config)
-        .then(response => {
-            res.json(response.data);
-        })
-        .catch(error => {
-            res.status(500).send({
-                message: error.message
-            });
+    client.connect()
+        .then(() => {
+            client.widgetToken.create()
+                .then((response) => {
+                    res.json(response);
+                })
+                .catch((error) => {
+                    res.status(500).send({
+                        message: error.message
+                    });
+                });
         });
 });
 

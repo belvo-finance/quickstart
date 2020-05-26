@@ -10,12 +10,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.2",
-    "belvo": "^0.2.0",
+    "belvo": "^0.3.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "moment": "^2.24.0",
+    "moment": "^2.26.0",
     "request": "^2.88.2"
   }
 }
