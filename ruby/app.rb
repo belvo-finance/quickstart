@@ -4,7 +4,6 @@ require 'json'
 require 'belvo'
 require 'sinatra'
 require 'sinatra/cross_origin'
-require 'httparty'
 
 # Fill in your Belvo API keys - https://dashboard.belvo.co
 BELVO_SECRET_ID = ENV['BELVO_SECRET_ID']
@@ -40,7 +39,6 @@ belvo = Belvo::Client.new(
   BELVO_ENV_URL
 )
 
-auth = {:username => BELVO_SECRET_ID, :password => BELVO_SECRET_PASSWORD}
 
 before do
   if request.body
@@ -53,12 +51,10 @@ end
 # Request an access token to be used when loading the Widget
 # https://developers.belvo.co/docs/connect-widget#section--3-generate-an-access_token-
 get '/get_token' do
-  url = BELVO_ENV_URL + '/api/token/'
-  response = HTTParty.post(url, body: {id: BELVO_SECRET_ID, password: BELVO_SECRET_PASSWORD,
-    scopes: "read_institutions,write_links,read_links,delete_links"}, :basic_auth => auth)
+  response = belvo.widget_token.create
   pretty_print_response(response)
   content_type :json
-  JSON.parse(response.to_json)
+  response.to_json
 end
 
 post '/accounts' do
