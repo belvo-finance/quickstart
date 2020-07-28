@@ -1,5 +1,5 @@
 MISSING_ENV := "\n❌ Missing .env file, please use .env.example to create your own.\n"
-MISSING_KEYS := \n"❌ You need to set your own secret key credentials, please edit your .env file and replace CHANGEME with the correct value.\n"
+MISSING_KEYS := "\n❌ You need to set your own secret key credentials, please edit your .env file and replace CHANGEME with the correct value.\n"
 ALL_GOOD := "\n✅ All good!🎉🎉\n"
 
 .DEFAULT_GOAL := help
@@ -16,7 +16,7 @@ ifeq (,$(wildcard ./.env))
 	exit 1
 endif
 
-ifneq (,$(findstring CHANGEME, $(cat .env)))
+ifneq (,$(findstring CHANGEME, $(shell cat .env)))
 	@echo $(MISSING_KEYS) 
 	exit 1
 else 
@@ -35,3 +35,4 @@ up: ## Boot up quickstart app
 
 .PHONY: run
 run: check build up ## Check, build and start containers
+
