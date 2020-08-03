@@ -1,4 +1,6 @@
-MISSING_KEYS := "You need to set your own secret key credentials, please edit your .env file and replace CHANGEME with the correct value."
+MISSING_ENV := "\n❌ Missing .env file, please use .env.example to create your own.\n"
+MISSING_KEYS := "\n❌ You need to set your own secret key credentials, please edit your .env file and replace CHANGEME with the correct value.\n"
+ALL_GOOD := "\n✅ All good!🎉🎉\n"
 
 .DEFAULT_GOAL := help
 
@@ -10,10 +12,17 @@ help:  ## Shows this help message
 .PHONY: check
 check: ## Verify if you have all configured
 ifeq (,$(wildcard ./.env))
-	@echo "Missing .env file, please use .env.example to create your own."
-	exit 1;
+	@echo $(MISSING_ENV)
+	exit 1
 endif
-	if grep -q CHANGEME .env; then echo $(MISSING_KEYS); exit 1; else docker-compose config; echo "\nAll good!🎉🎉"; fi
+
+ifneq (,$(findstring CHANGEME, $(shell cat .env)))
+	@echo $(MISSING_KEYS) 
+	exit 1
+else 
+	@docker-compose config 
+	@echo $(ALL_GOOD)
+endif
 
 
 .PHONY: build
@@ -26,3 +35,4 @@ up: ## Boot up quickstart app
 
 .PHONY: run
 run: check build up ## Check, build and start containers
+
