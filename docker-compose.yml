@@ -5,6 +5,8 @@ services:
     build:
       context: client
     image: belvo/quickstart:client
+    environment:
+      BELVO_ENV: ${BELVO_ENV}
     ports:
     - 8080:8080
     networks:
