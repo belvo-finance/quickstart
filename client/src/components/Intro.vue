@@ -37,7 +37,7 @@
             const access_token = response.data.access;
             window.belvoSDK.createWidget(access_token, {
               locale: 'es', // 'en' for English
-              country_codes: ['MX', 'CO'],
+              country_codes: ['MX', 'CO', 'BR'],
               callback: (link) => this.successCallbackFunction(link),
               onExit: (data) => this.onExitCallbackFunction(data),
               onEvent: (data) => console.log('data', data)
