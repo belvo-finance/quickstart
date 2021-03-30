@@ -1,6 +1,6 @@
 {
   "name": "Belvo Quickstart",
   "description": "A barebones Python app using Belvo",
-  "repository": "https://github.com/belvo-finance/quickstart/tree/master/python",
+  "repository": "https://github.com/belvo-finance/quickstart/tree/deploy-on-heroku-py",
   "keywords": ["python", "belvo", "static"]
 }
