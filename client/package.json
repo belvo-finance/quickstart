@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "preinstall": "npx npm-force-resolutions"
   },
   "dependencies": {
     "@belvo/belvo-vue-components": "^1.12.19",
@@ -24,6 +25,10 @@
     "eslint-plugin-vue": "^6.2.2",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
+  },
+  "resolutions": {
+    "gsap": "3.6.1",
+    "postcss": "^8.2.15"
   },
   "eslintConfig": {
     "root": true,
