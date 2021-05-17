@@ -1,11 +1,11 @@
-belvo-python>=0.15
+belvo-python>=0.24
 click==6.7
 Flask>=0.12.3
 itsdangerous==0.24
 Jinja2>=2.9.5
 MarkupSafe==0.23
 Werkzeug>=0.14
-requests==2.22.0
+requests==2.24.0
 flask-cors
 pytest
 pytest-flask
