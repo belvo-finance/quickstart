@@ -8,19 +8,26 @@ from belvo.exceptions import RequestError
 from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
 
-# Fill in your Belvo API keys - https://dashboard.belvo.co
+# Fill in your Belvo API keys - https://dashboard.belvo.com
 BELVO_SECRET_ID = os.getenv("BELVO_SECRET_ID")
 BELVO_SECRET_PASSWORD = os.getenv("BELVO_SECRET_PASSWORD")
 # Use `sandbox` to test with Belvo's Sandbox environment
 # Use `production` to go live
+# Use `development` to test with real data
 BELVO_ENV = os.getenv("BELVO_ENV", "sandbox")
-BELVO_ENV_URL = "https://sandbox.belvo.co" if BELVO_ENV == "sandbox" else "https://api.belvo.co"
+
+if BELVO_ENV == "production":
+    BELVO_ENV_URL = "https://api.belvo.com"
+elif BELVO_ENV == "development":
+    BELVO_ENV_URL = "https://development.belvo.com"
+else:
+    BELVO_ENV_URL = "https://sandbox.belvo.com"
 
 app = Flask(__name__, static_folder="./dist", template_folder="./dist")
 
 CORS(app)
 
-if BELVO_ENV == "sandbox":
+if BELVO_ENV == "sandbox" or BELVO_ENV == "development":
     app.config["TESTING"] = True
     os.environ["FLASK_ENV"] = "development"
 

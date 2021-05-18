@@ -1,6 +1,6 @@
 FROM ruby:2.7
 
-RUN gem install bundler:1.17.3
+RUN gem install bundler:2.2.16
 
 WORKDIR /opt/belvo
 
@@ -13,4 +13,3 @@ COPY . /opt/belvo
 EXPOSE 5000
 
 CMD ["ruby", "app.rb"]
-

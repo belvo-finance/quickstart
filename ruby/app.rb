@@ -5,16 +5,20 @@ require 'belvo'
 require 'sinatra'
 require 'sinatra/cross_origin'
 
-# Fill in your Belvo API keys - https://dashboard.belvo.co
+# Fill in your Belvo API keys - https://dashboard.belvo.com
 BELVO_SECRET_ID = ENV['BELVO_SECRET_ID']
 BELVO_SECRET_PASSWORD = ENV['BELVO_SECRET_PASSWORD']
 # Use `sandbox` to test with Belvo's Sandbox environment
 # Use `production` to go live
+# Use `development` to test with real data
 BELVO_ENV = ENV['BELVO_ENV']
-BELVO_ENV_URL = 'https://sandbox.belvo.co' 
 
-if not BELVO_ENV and BELVO_ENV == 'sandbox'
-  BELVO_ENV_URL = 'https://api.belvo.co'
+if BELVO_ENV == 'production'
+  BELVO_ENV_URL = 'https://api.belvo.com'
+elsif BELVO_ENV == 'development'
+  BELVO_ENV_URL = 'https://development.belvo.com'
+else
+  BELVO_ENV_URL = 'https://sandbox.belvo.com'
 end
 
 set :port, 5000
@@ -32,7 +36,7 @@ options "*" do
 
   200
 end
-  
+
 belvo = Belvo::Client.new(
   BELVO_SECRET_ID,
   BELVO_SECRET_PASSWORD,

@@ -14,13 +14,21 @@ app.use(function (req, res, next) {
     next();
 });
 
-// Fill in your Belvo API keys - https://dashboard.belvo.co
+// Fill in your Belvo API keys - https://dashboard.belvo.com
 BELVO_SECRET_ID = process.env.BELVO_SECRET_ID
 BELVO_SECRET_PASSWORD = process.env.BELVO_SECRET_PASSWORD
 // Use `sandbox` to test with Belvo's Sandbox environment
 // Use `production` to go live
+// Use `development` to test with real data
 BELVO_ENV = process.env.BELVO_ENV || 'sandbox'
-BELVO_ENV_URL = process.env.BELVO_ENV === 'sandbox' ? 'https://sandbox.belvo.co' : 'https://api.belvo.co'
+
+if (BELVO_ENV == 'production') {
+  BELVO_ENV_URL = 'https://api.belvo.com'
+} else if (BELVO_ENV == 'development') {
+  BELVO_ENV_URL = 'https://development.belvo.com'
+} else {
+  BELVO_ENV_URL = 'https://sandbox.belvo.com'
+}
 
 const client = new belvo(
     BELVO_SECRET_ID,
