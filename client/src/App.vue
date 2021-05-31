@@ -31,11 +31,7 @@ export default {
   },
   mounted() {
     let belvoScript = document.createElement('script')
-    if (process.env.NODE_ENV === 'production') {
-      belvoScript.setAttribute('src', 'https://cdn.belvo.io/belvo-widget-1-stable.js')
-    } else {
-      belvoScript.setAttribute('src', 'https://cdn.belvo.io/belvo-widget-sandbox-1-stable.js')
-    }
+    belvoScript.setAttribute('src', 'https://cdn.belvo.io/belvo-widget-1-stable.js')
     document.head.appendChild(belvoScript)
   },
   methods: {
